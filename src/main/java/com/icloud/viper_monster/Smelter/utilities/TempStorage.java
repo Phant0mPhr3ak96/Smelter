@@ -16,7 +16,6 @@ public final class TempStorage {
     }
 
     private static final HashBasedTable<UUID, String, Long> cooldowns = HashBasedTable.create();
-    //private static final WeakHashMap<UUID, Long> cooldowns = new WeakHashMap<>();
 
     public static boolean isOnCooldown(UUID uuid, boolean all) {
         String key = all ? "SmeltAll" : "Smelt";

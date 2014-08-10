@@ -1,3 +1,4 @@
+auto-updater: true
 ranks:
   Default:
     cost: 20

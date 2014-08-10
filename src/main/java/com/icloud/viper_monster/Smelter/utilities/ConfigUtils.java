@@ -16,6 +16,9 @@ public final class ConfigUtils {
     public static boolean isPerItemPermission() {
         return Main.get().getConfig().getBoolean("per-item-permissions", false);
     }
+    public static boolean isUpdater() {
+        return Main.get().getConfig().getBoolean("auto-updater", true);
+    }
 
     public static Material getMaterialForSmelting() {
         Material material = Material.getMaterial(Main.get().getConfig().getString("items-required-for-smelting.item", "COAL"));
