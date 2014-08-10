@@ -31,8 +31,9 @@ public final class ConfigUtils {
         return Main.get().getConfig().getDouble("ranks." + rank + ".cost", 0);
     }
 
-    public static long getSmeltPerRankCooldown(String rank) {
-        return Main.get().getConfig().getLong("ranks." + rank + ".cooldown", 0);
+    public static long getSmeltPerRankCooldown(String rank, boolean all) {
+        String key = all ? "all" : "one";
+        return Main.get().getConfig().getLong("ranks." + rank + ".cooldown." + key, 0);
     }
 
     public static String getMessage(String value) {

@@ -30,7 +30,7 @@ public final class TempStorage {
 
     public static void updateCooldown(UUID uuid, boolean all) {
         String key = all ? "SmeltAll" : "Smelt";
-        long time = ConfigUtils.getSmeltPerRankCooldown(Main.get().getPermission().getPrimaryGroup(Main.get().getServer().getPlayer(uuid))) * 1000;
+        long time = ConfigUtils.getSmeltPerRankCooldown(Main.get().getPermission().getPrimaryGroup(Main.get().getServer().getPlayer(uuid)), all) * 1000;
         if (time <= 0) return;
         cooldowns.put(uuid, key, System.currentTimeMillis() + time);
     }
