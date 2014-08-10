@@ -18,8 +18,8 @@ public enum Lang {
     NO_ITEM_PERMISSION("no-item-permission", "&cYou don't have permission to smelt this item."),
     NO_SMELTABLE_ITEMS("no-smeltable-items", "&cYou have no smeltable items in your inventory."),
     CONFIGS_RELOADED("config-reloaded", "&aYou have reloaded all configuration files."),
-    SMELTED_one("smelted-one", "&aItem from your hand was successfully smelted."),
-    SMELTED_all("smelted-all", "&aEvery smeltable item from your inventory was smelted."),
+    SMELTED_one("smelted-one", "&aSuccessfully smelted item from your hand."),
+    SMELTED_all("smelted-all", "&aSuccessfully smelted all smeltable items."),
     NOT_ENOUGH_MONEY("not-enough-money", "&cYou don't have enough money. Money needed: &7%money_needed&c."),
     INVALID_ITEM("invalid-item", "&cPlease use a valid item to smelt."),
     ON_COOLDOWN("on-cooldown", "&cYou are on a cooldown for &7%time_left &cmore seconds.");
