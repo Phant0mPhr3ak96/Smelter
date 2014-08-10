@@ -1,4 +1,4 @@
-main: com.duckzcraft.viper_monster.smelter.Main
+main: com.icloud.viper_monster.Smelter.Main
 name: ${project.groupId}
 version: ${project.version}
 author: viper_monster

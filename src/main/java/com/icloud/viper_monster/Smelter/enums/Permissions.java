@@ -7,6 +7,7 @@ import org.bukkit.command.CommandSender;
  * Project: Smelter
  * Date: 10.8.2014. 12:06
  */
+@SuppressWarnings("all")
 public enum Permissions {
 
     ADMIN("smelter.admin"), //Allows you to reload config files

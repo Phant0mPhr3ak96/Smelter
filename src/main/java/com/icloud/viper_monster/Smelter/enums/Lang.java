@@ -9,6 +9,7 @@ import org.bukkit.command.CommandSender;
  * Project: Smelter
  * Date: 10.8.2014. 12:06
  */
+@SuppressWarnings("all")
 public enum Lang {
 
     TITLE("title", "&4[&6Smelter&4]&r "),
