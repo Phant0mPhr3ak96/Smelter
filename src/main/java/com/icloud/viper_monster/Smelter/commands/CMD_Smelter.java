@@ -35,12 +35,18 @@ public class CMD_Smelter extends AbstractCommand {
         }
 
         if (args.length == 1) {
-            if (args[0].equalsIgnoreCase("reload")) {
-                Main.get().getConfig().reload();
-                Main.get().getLangConfig().reload();
-                Lang.CONFIGS_RELOADED.send(sender);
-                return true;
+            switch (args[0].toLowerCase()) {
+                case "reload":
+                case "r": {
+                    Main.get().getConfig().reload();
+                    Main.get().getLangConfig().reload();
+                    Lang.CONFIGS_RELOADED.send(sender);
+                    return true;
+                }
             }
+
+            sender.sendMessage(DARK_RED + "Usage: " + RED + command.getUsage().replaceAll("<command>", label));
+            return true;
         }
         return true;
     }

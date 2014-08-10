@@ -15,7 +15,7 @@ commands:
     aliases: []
   smelter:
     description: Main command
-    usage: /<command> <reload>
+    usage: /<command> <reload(r)>
     aliases: []
 
 permissions:
