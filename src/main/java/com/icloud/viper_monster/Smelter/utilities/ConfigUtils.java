@@ -1,8 +1,13 @@
-package com.duckzcraft.viper_monster.Smelter.utilities;
+package com.icloud.viper_monster.Smelter.utilities;
 
-import com.duckzcraft.viper_monster.Smelter.Main;
+import com.icloud.viper_monster.Smelter.Main;
 import org.bukkit.Material;
 
+/**
+ * Author: viper_monster
+ * Project: Smelter
+ * Date: 10.8.2014. 12:06
+ */
 public final class ConfigUtils {
 
     private ConfigUtils() {

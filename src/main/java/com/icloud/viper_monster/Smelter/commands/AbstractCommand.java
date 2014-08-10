@@ -1,13 +1,16 @@
-package com.duckzcraft.viper_monster.Smelter.commands;
+package com.icloud.viper_monster.Smelter.commands;
 
-import com.duckzcraft.viper_monster.Smelter.Main;
-import com.duckzcraft.viper_monster.Smelter.utilities.ConfigUtils;
-import com.duckzcraft.viper_monster.Smelter.utilities.Utils;
+import com.icloud.viper_monster.Smelter.Main;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
+/**
+ * Author: viper_monster
+ * Project: Smelter
+ * Date: 10.8.2014. 12:06
+ */
 public abstract class AbstractCommand implements CommandExecutor {
 
     public Main plugin;
@@ -20,20 +23,12 @@ public abstract class AbstractCommand implements CommandExecutor {
         return sender instanceof Player;
     }
 
-    public void sendMessage(CommandSender sender, String message) {
-        sender.sendMessage(Utils.translateColors(ConfigUtils.getPrefix() + message));
-    }
-
     public boolean hasEnough(Player player, double amount) {
         return plugin.getEconomy().has(player, amount);
     }
 
     public void withdrawPlayer(Player player, double amount) {
         plugin.getEconomy().withdrawPlayer(player, amount);
-    }
-
-    public String format(double amount) {
-        return plugin.getEconomy().format(amount);
     }
 
     public String getPrimaryGroup(Player player) {

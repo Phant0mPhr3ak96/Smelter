@@ -1,0 +1,21 @@
+ranks:
+  Default:
+    cost: 20
+    cooldown:
+      one: 240
+      all: 480
+  Builder:
+    cost: 15
+    cooldown:
+      one: 120
+      all: 240
+  Admin:
+    cost: 10
+    cooldown:
+      one: 60
+      all: 120
+  Owner:
+    cost: 5
+    cooldown:
+      one: 30
+      all: 60

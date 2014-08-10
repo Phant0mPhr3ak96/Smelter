@@ -1,25 +1,26 @@
-package com.duckzcraft.viper_monster.Smelter;
+package com.icloud.viper_monster.Smelter;
 
-import com.duckzcraft.viper_monster.Smelter.commands.CMD_smelt;
-import com.duckzcraft.viper_monster.Smelter.commands.CMD_smeltall;
-import com.duckzcraft.viper_monster.Smelter.commands.CMD_smelter;
-import com.duckzcraft.viper_monster.Smelter.utilities.ConfigUtils;
-import com.duckzcraft.viper_monster.Smelter.utilities.Utils;
+import com.icloud.viper_monster.Smelter.commands.CMD_Smelt;
+import com.icloud.viper_monster.Smelter.commands.CMD_SmeltAll;
+import com.icloud.viper_monster.Smelter.commands.CMD_Smelter;
+import com.icloud.viper_monster.Smelter.utilities.Config;
+import com.icloud.viper_monster.Smelter.utilities.Utils;
 import net.milkbowl.vault.economy.Economy;
 import net.milkbowl.vault.permission.Permission;
-import org.bukkit.entity.Player;
 import org.bukkit.plugin.RegisteredServiceProvider;
 import org.bukkit.plugin.java.JavaPlugin;
 
-import java.util.UUID;
-import java.util.WeakHashMap;
-
+/**
+ * Author: viper_monster
+ * Project: Smelter
+ * Date: 10.8.2014. 12:06
+ */
 public class Main extends JavaPlugin {
 
     private static Main instance;
     private Economy economy = null;
     private Permission permission = null;
-    private WeakHashMap<UUID, Long> cooldown = new WeakHashMap<>();
+    private Config config, langConfig;
 
     @Override
     public void onEnable() {
@@ -29,6 +30,9 @@ public class Main extends JavaPlugin {
             getLogger().warning("Disabled due to no Vault dependency found!");
             getServer().getPluginManager().disablePlugin(this);
         }
+
+        config = Config.createConfig(this, "config");
+        langConfig = Config.createConfig(this, "lang");
 
         setupPermissions();
         saveDefaultConfig();
@@ -40,9 +44,9 @@ public class Main extends JavaPlugin {
         }
         saveConfig();
 
-        getCommand("smelt").setExecutor(new CMD_smelt(this));
-        getCommand("smeltall").setExecutor(new CMD_smeltall(this));
-        getCommand("smelter").setExecutor(new CMD_smelter(this));
+        getCommand("smelt").setExecutor(new CMD_Smelt(this));
+        getCommand("smeltall").setExecutor(new CMD_SmeltAll(this));
+        getCommand("smelter").setExecutor(new CMD_Smelter(this));
     }
 
     @Override
@@ -52,6 +56,15 @@ public class Main extends JavaPlugin {
 
     public static Main get() {
         return instance;
+    }
+
+    @Override
+    public Config getConfig() {
+        return config;
+    }
+
+    public Config getLangConfig() {
+        return langConfig;
     }
 
     private boolean setupEconomy() {
@@ -74,27 +87,5 @@ public class Main extends JavaPlugin {
 
     public Permission getPermission() {
         return permission;
-    }
-
-    public boolean isOnCooldown(Player player) {
-        if (!cooldown.containsKey(player.getUniqueId())) return false;
-        if (cooldown.get(player.getUniqueId()) < System.currentTimeMillis()) {
-            cooldown.remove(player.getUniqueId());
-            return false;
-        }
-        return true;
-
-        /*if (!cooldown.containsKey(player.getUniqueId())) cooldown.put(player.getUniqueId(), System.currentTimeMillis());
-        return cooldown.get(player.getUniqueId()) > System.currentTimeMillis();*/
-    }
-
-    public void updateCooldown(Player player) {
-        long time = ConfigUtils.getSmeltPerRankCooldown(getPermission().getPrimaryGroup(player));
-        if (time == System.currentTimeMillis()) return;
-        cooldown.put(player.getUniqueId(), System.currentTimeMillis() + time);
-    }
-
-    public void removeCooldown(Player player) {
-        cooldown.remove(player.getUniqueId());
     }
 }

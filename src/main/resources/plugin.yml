@@ -1,0 +1,42 @@
+main: com.duckzcraft.viper_monster.smelter.Main
+name: ${project.groupId}
+version: ${project.version}
+author: viper_monster
+depend: [Vault]
+
+commands:
+  smelt:
+    description: Smelts item from your hands
+    usage: /<command>
+    aliases: []
+  smeltall:
+    description: Smelts all smeltable items from your inventory
+    usage: /<command>
+    aliases: []
+  smelter:
+    description: Main command
+    usage: /<command> <reload>
+    aliases: []
+
+permissions:
+  smelter.admin:
+    description: Allows you to reload config files
+    default: op
+  smelter.smelt:
+    description: Allows you to use /smelt
+    default: op
+  smelter.smelt.free:
+    description: Allows you to use /smelt without any costs
+    default: op
+  smelter.smelt.no-cooldown:
+    description: Allows you to use /smelt without a cooldown
+    default: op
+  smelter.smeltall:
+    description: Allows you to use /smeltall
+    default: op
+  smelter.smeltall.free:
+    description: Allows you to use /smeltall without any costs
+    default: op
+  smelter.smeltall.no-cooldown:
+    description: Allows you to use /smeltall without a cooldown
+    default: op
